@@ -1,45 +1,121 @@
 {
   "name": "chronicle-parser-tools",
-	"displayName": "Chronicle Parser Tools",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.69.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:chronicle-parser-tools.helloWorld"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "chronicle-parser-tools.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.69.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "16.x",
-		"@typescript-eslint/eslint-plugin": "^5.30.0",
-		"@typescript-eslint/parser": "^5.30.0",
-		"eslint": "^8.18.0",
-		"glob": "^8.0.3",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4",
-		"@vscode/test-electron": "^2.1.5"
-	}
+  "displayName": "Chronicle Parser Tools",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "chronicle",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:chronicle-parser-tools.list",
+    "onCommand:chronicle-parser-tools.download",
+    "onCommand:chronicle-parser-tools.archive",
+    "onCommand:chronicle-parser-tools.create",
+    "onCommand:chronicle-parser-tools.sample",
+    "onCommand:chronicle-parser-tools.validate",
+    "onCommand:chronicle-parser-tools.history"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chronicle-parser-tools.list",
+        "title": "Chronicle: List Parsers"
+      },
+      {
+        "command": "chronicle-parser-tools.download",
+        "title": "Chronicle: Download Parser"
+      },
+      {
+        "command": "chronicle-parser-tools.archive",
+        "title": "Chronicle: Archive Parser"
+      },
+      {
+        "command": "chronicle-parser-tools.create",
+        "title": "Chronicle: Create Parser"
+      },
+      {
+        "command": "chronicle-parser-tools.refresh",
+        "title": "Refresh (↹)"
+      },
+      {
+        "command": "chronicle-parser-tools.sample",
+        "title": "Chronicle: Retrieve Sample Logs"
+      },
+      {
+        "command": "chronicle-parser-tools.validate",
+        "title": "Chronicle: Validate Parser"
+      },
+      {
+        "command": "chronicle-parser-tools.history",
+        "title": "Chronicle: Parser History"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "chronicle-parser-tools.refresh",
+          "group": "navigation",
+          "when": "resourceScheme == chronicle.get"
+        },
+        {
+          "command": "chronicle-parser-tools.list",
+          "group": "navigation",
+          "when": "resourceScheme == chronicle.get || resourceScheme == chronicle.hist"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Chronicle Parser Tools",
+      "properties": {
+        "chronicle.serviceAccountFilePath": {
+          "type": "string",
+          "default": null,
+          "description": "Specifies the absolute path to the Chronicle Service Account JSON file."
+        },
+        "chronicle.region": {
+          "type": "string",
+          "default": "US",
+          "enum": ["US", "EUROPE", "ASIA"],
+          "description": "Specifies the region in which the associated Chronicle instance exists."
+        },
+        "chronicle.author": {
+          "type": "string",
+          "default": null,
+          "description": "Specifies the author value used when creating new parsers."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.69.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "google-auth-library": "^8.1.1",
+    "googleapis": "^105.0.0",
+    "open": "^8.4.0",
+    "server-destroy": "^1.0.1"
+  }
 }

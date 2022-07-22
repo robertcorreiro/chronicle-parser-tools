@@ -1,70 +1,100 @@
-# chronicle-parser-tools README
+# Chronicle Parser Tools for Visual Studio Code
 
-This is the README for your extension "chronicle-parser-tools". After writing up a brief description, we recommend including the following sections.
+The VS Code **Chronicle Parser Tools** extension
+provides rich support for the
+Chronicle Tooling APIs, used to manage parsers for Chronicle environments.
+
+## Quick Start
+---
+Welcome! 👋🏻
+
+Whether you are new to Chronicle Parsers or are an experienced builder, we hope this
+extension fits your needs and enhances your development experience.
+
+* **Step 1.** If you haven't done so already, install the Chronicle Parser Tools extension.
+  * [Managing extensions in VS Code].
+* **Step 2.** Configure the following settings for connecting and authenticating to your Chronicle instance:
+  *  `Service Account File Path`
+  *  `Region`
+  *  `Author`
+
+You are now ready :-) &nbsp;&nbsp; 🎉🎉🎉
+
+Please be sure to learn more about the many [features](#features) of this
+extension.
 
 ## Features
+---
+This extension provides many features, including parser management, testing, and data generation support. You can access any of these by opening the Command Palette (`Ctrl+Shift+P` on Linux/Windows and `Cmd+Shift+P` on Mac), and then typing in the command name.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<p align=center>
+<img src="docs/images/command_palette.png" width=75%>
+<br/>
+<em>(Command Palette options)</em>
+</p>
 
-For example if there is an image subfolder under your extension project workspace:
+In addition to [commands](#commands), the extension provides several opportunities for interaction based on the view.
 
-\!\[feature X\]\(images/feature-x.png\)
+For example, after creating or archiving a parser users can click the **Refresh (↹)** button to refresh the view and retrieve the latus status:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+<p align=center>
+<img src="docs/images/refresh.png" width=75%>
+<br/>
+<em>(Command Palette options)</em>
+</p>
+
+Or navigating back to the List Parsers view by clicking on the **List Parsers** button, as shown:
+
+<p align=center>
+<img src="docs/images/list_parsers.png" width=75%>
+<br/>
+<em>(Command Palette options)</em>
+</p>
+
+## Commands
+---
+
+### `Create Parser`
+
+Creates a new parser, or overrides the existing one, given a configuration file and data type.
+
+### `Download Parser`
+
+Retrieves the given parser's configuration.
+
+### `Validate Parser`
+
+Tests a given parser configuration against a given log file outputting events and/or errors.
+
+### `List Parser`
+
+Returns a list of active parsers on the instance.
+
+### `Retrieve Sample Logs`
+
+Retrieves sample data from the Chronicle instance given a data type and start/end times.
+
+### `Archive Parser`
+
+Archives the given parser, removing it from the instance.
+
+### `Parser History`
+
+Returns the history of parsers for a given data type on the instance.
+
 
 ## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+---
+A valid Service Account JSON file used to authenticate to a Chronicle instance.
 
 ## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
+---
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `Author`: a string value used when creating a new parser
+* `Region`: the region associated with the instance
+* `Service Account File Path`: the file path to the JSON file used for authentication.
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## License
+---
+**MIT**
