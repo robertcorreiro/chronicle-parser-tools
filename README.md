@@ -5,7 +5,6 @@ provides rich support for the
 Chronicle Tooling APIs, used to manage parsers for Chronicle environments.
 
 ## Quick Start
----
 Welcome! 👋🏻
 
 Whether you are new to Chronicle Parsers or are an experienced builder, we hope this
@@ -24,7 +23,6 @@ Please be sure to learn more about the many [features](#features) of this
 extension.
 
 ## Features
----
 This extension provides many features, including parser management, testing, and data generation support. You can access any of these by opening the Command Palette (`Ctrl+Shift+P` on Linux/Windows and `Cmd+Shift+P` on Mac), and then typing in the command name.
 
 <p align=center>
@@ -52,7 +50,6 @@ Or navigating back to the List Parsers view by clicking on the **List Parsers** 
 </p>
 
 ## Commands
----
 
 ### `Create Parser`
 
@@ -84,11 +81,9 @@ Returns the history of parsers for a given data type on the instance.
 
 
 ## Requirements
----
 A valid Service Account JSON file used to authenticate to a Chronicle instance.
 
 ## Extension Settings
----
 This extension contributes the following settings:
 
 * `Author`: a string value used when creating a new parser
@@ -96,5 +91,4 @@ This extension contributes the following settings:
 * `Service Account File Path`: the file path to the JSON file used for authentication.
 
 ## License
----
 **MIT**
