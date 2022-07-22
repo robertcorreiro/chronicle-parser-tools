@@ -80,7 +80,11 @@
         "chronicle.region": {
           "type": "string",
           "default": "US",
-          "enum": ["US", "EUROPE", "ASIA"],
+          "enum": [
+            "US",
+            "EUROPE",
+            "ASIA"
+          ],
           "description": "Specifies the region in which the associated Chronicle instance exists."
         },
         "chronicle.author": {
@@ -92,7 +96,11 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
@@ -107,6 +115,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
     "@vscode/test-electron": "^2.1.5",
+    "esbuild": "^0.14.49",
     "eslint": "^8.18.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
@@ -117,5 +126,8 @@
     "googleapis": "^105.0.0",
     "open": "^8.4.0",
     "server-destroy": "^1.0.1"
+  },
+  "repository": {
+    "url": "https://github.com/robertcorreiro/chronicle-parser-tools.git"
   }
 }
