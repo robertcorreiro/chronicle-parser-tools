@@ -1,6 +1,6 @@
 # Chronicle Parser Tools for Visual Studio Code
 
-Note: This extension is provided for educational purposes only and is not actively maintained. Feel free to fork and modify as needed.
+**Note: This extension is provided for educational purposes only and is not actively maintained. Feel free to fork and modify as needed.**
 
 The VS Code **Chronicle Parser Tools** extension
 provides rich support for the
